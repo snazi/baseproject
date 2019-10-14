@@ -33,6 +33,13 @@ class SearchboxDemo extends Component {
         }
     }
 
+    handleChange = (e) => {
+        this.setState(
+            {searchField: e.target.value}, 
+            () => console.log(this.state)
+        )
+    }
+
     render() {
 
         const { users, searchField } = this.state
@@ -48,10 +55,7 @@ class SearchboxDemo extends Component {
 
                     <SearchBox  
                         placeholder='pls enter user here!'
-                        handleChange={e => this.setState(
-                            {searchField: e.target.value}, 
-                            () => console.log(this.state)
-                        )}
+                        handleChange={this.handleChange}
                     />
                     
                     {
