@@ -38,7 +38,7 @@ class SearchboxDemo extends Component {
                 <header className="App-header">
                     <CardList>
 
-                    <input type="search" placeholder="Look for a user here"  onChange={e => this.setState({ searchField: e.target.value})} />
+                    <input type="search" placeholder="Look for a user here"  onChange={e => this.setState({ searchField: e.target.value}, () => console.log(this.state) )} />
                     
                     {
                         this.state.Users.map(User => 
