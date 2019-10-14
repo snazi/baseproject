@@ -35,16 +35,27 @@ class SearchboxDemo extends Component {
     render() {
 
         const { users, searchField } = this.state
-        
+
+        const filteredUsers = users.filter( user =>
+            user.name.toLowerCase().includes(searchField.toLowerCase())
+        )
+
         return (
             <div className="App">
                 <header className="App-header">
                     <CardList>
 
-                    <input type="search" placeholder="Look for a user here"  onChange={e => this.setState({ searchField: e.target.value}, () => console.log(this.state) )} />
+                    <input 
+                        type="search" 
+                        placeholder="Look for a user here"  
+                        onChange={e => this.setState(
+                            { searchField: e.target.value}, 
+                            () => console.log(this.state)
+                        )} 
+                    />
                     
                     {
-                        this.state.users.map(User => 
+                        filteredUsers.map(User => 
                             <h1 key={User.id}>{User.name}</h1>
                         )
                     }
