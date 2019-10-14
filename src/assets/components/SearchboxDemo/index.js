@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from '../../../../src/assets/images/logo.svg';
 import '../functiondemo/style.module.css'
 import {CardList} from './components/card-list/card-list.component'
+import {SearchBox} from './components/search-box/search-box.component'
 
 class SearchboxDemo extends Component {
 
@@ -45,13 +46,12 @@ class SearchboxDemo extends Component {
                 <header className="App-header">
                     <CardList>
 
-                    <input 
-                        type="search" 
-                        placeholder="Look for a user here"  
-                        onChange={e => this.setState(
+                    <SearchBox  
+                        placeholder='pls enter user here!'
+                        handleChange={e => this.setState(
                             {searchField: e.target.value}, 
                             () => console.log(this.state)
-                        )} 
+                        )}
                     />
                     
                     {
