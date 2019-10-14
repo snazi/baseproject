@@ -49,7 +49,7 @@ class SearchboxDemo extends Component {
                         type="search" 
                         placeholder="Look for a user here"  
                         onChange={e => this.setState(
-                            { searchField: e.target.value}, 
+                            {searchField: e.target.value}, 
                             () => console.log(this.state)
                         )} 
                     />
