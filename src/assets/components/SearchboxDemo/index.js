@@ -9,7 +9,7 @@ class SearchboxDemo extends Component {
         super();
 
         this.state = {
-             Users: [
+             users: [
                  {
                      name: 'Angelo',
                      id: '1'
@@ -33,15 +33,20 @@ class SearchboxDemo extends Component {
     }
 
     render() {
+
+        //destructuring example
+        const { users, searchField } = this.state
+        
         return (
+
             <div className="App">
                 <header className="App-header">
                     <CardList>
 
-                    <input type="search" placeholder="Look for a user here"  onChange={e => this.setState({ searchField: e.target.value}, () => console.log(this.state) )} />
+                    <input type="search" placeholder="Look for a user here"  onChange={e => this.setState({ searchField: e.target.value} )} />
                     
                     {
-                        this.state.Users.map(User => 
+                        this.state.users.map(User => 
                             <h1 key={User.id}>{User.name}</h1>
                         )
                     }
